@@ -46,8 +46,8 @@ with open(os.path.join(package_folder_path, 'version.py'), 'r') as fd:
     version = re.search(r'^VERSION\s*=\s*[\'"]([^\'"]*)[\'"]',
                         fd.read(), re.MULTILINE).group(1)
 
-if not version:
-    raise RuntimeError('Cannot find version information')
+#if not version:
+#    raise RuntimeError('Cannot find version information')
 
 with open('README.rst', encoding='utf-8') as f:
     readme = f.read()
