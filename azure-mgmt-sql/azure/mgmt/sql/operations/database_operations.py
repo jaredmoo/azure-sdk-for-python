@@ -23,7 +23,7 @@ class DatabaseOperations(object):
     :param config: Configuration of service client.
     :param serializer: An object model serializer.
     :param deserializer: An objec model deserializer.
-    :ivar api_version: The API version to use for the request. Constant value: "2017-03-01-preview".
+    :ivar api_version: The API version to use for the request. Constant value: "2017-10-01-preview".
     """
 
     models = models
@@ -33,7 +33,7 @@ class DatabaseOperations(object):
         self._client = client
         self._serialize = serializer
         self._deserialize = deserializer
-        self.api_version = "2017-03-01-preview"
+        self.api_version = "2017-10-01-preview"
 
         self.config = config
 
@@ -87,7 +87,7 @@ class DatabaseOperations(object):
 
         # Construct and send request
         request = self._client.post(url, query_parameters)
-        response = self._client.send(request, header_parameters, **operation_config)
+        response = self._client.send(request, header_parameters, stream=False, **operation_config)
 
         if response.status_code not in [200]:
             exp = CloudError(response)
@@ -154,7 +154,7 @@ class DatabaseOperations(object):
             # Construct and send request
             request = self._client.get(url, query_parameters)
             response = self._client.send(
-                request, header_parameters, **operation_config)
+                request, header_parameters, stream=False, **operation_config)
 
             if response.status_code not in [200]:
                 exp = CloudError(response)

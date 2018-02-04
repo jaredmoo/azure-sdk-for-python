@@ -16,14 +16,14 @@ from msrestazure.azure_exceptions import CloudError
 from .. import models
 
 
-class CapabilitiesOperations(object):
-    """CapabilitiesOperations operations.
+class ElasticPoolOperations(object):
+    """ElasticPoolOperations operations.
 
     :param client: Client for service requests.
     :param config: Configuration of service client.
     :param serializer: An object model serializer.
     :param deserializer: An objec model deserializer.
-    :ivar api_version: The API version to use for the request. Constant value: "2014-04-01".
+    :ivar api_version: The API version to use for the request. Constant value: "2017-10-01-preview".
     """
 
     models = models
@@ -33,31 +33,41 @@ class CapabilitiesOperations(object):
         self._client = client
         self._serialize = serializer
         self._deserialize = deserializer
-        self.api_version = "2014-04-01"
+        self.api_version = "2017-10-01-preview"
 
         self.config = config
 
-    def list_by_location(
-            self, location_id, custom_headers=None, raw=False, **operation_config):
-        """Gets the capabilities available for the specified location.
+    def cancel(
+            self, resource_group_name, server_name, elastic_pool_name, operation_id, custom_headers=None, raw=False, **operation_config):
+        """Cancels the asynchronous operation on the elastic pool.
 
-        :param location_id: The location id whose capabilities are retrieved.
-        :type location_id: str
+        :param resource_group_name: The name of the resource group that
+         contains the resource. You can obtain this value from the Azure
+         Resource Manager API or the portal.
+        :type resource_group_name: str
+        :param server_name: The name of the server.
+        :type server_name: str
+        :param elastic_pool_name:
+        :type elastic_pool_name: str
+        :param operation_id: The operation identifier.
+        :type operation_id: str
         :param dict custom_headers: headers that will be added to the request
         :param bool raw: returns the direct response alongside the
          deserialized response
         :param operation_config: :ref:`Operation configuration
          overrides<msrest:optionsforoperations>`.
-        :return: LocationCapabilities or ClientRawResponse if raw=true
-        :rtype: ~azure.mgmt.sql.models.LocationCapabilities or
-         ~msrest.pipeline.ClientRawResponse
+        :return: None or ClientRawResponse if raw=true
+        :rtype: None or ~msrest.pipeline.ClientRawResponse
         :raises: :class:`CloudError<msrestazure.azure_exceptions.CloudError>`
         """
         # Construct URL
-        url = '/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationId}/capabilities'
+        url = '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/operations/{operationId}/cancel'
         path_format_arguments = {
-            'subscriptionId': self._serialize.url("self.config.subscription_id", self.config.subscription_id, 'str'),
-            'locationId': self._serialize.url("location_id", location_id, 'str')
+            'resourceGroupName': self._serialize.url("resource_group_name", resource_group_name, 'str'),
+            'serverName': self._serialize.url("server_name", server_name, 'str'),
+            'elasticPoolName': self._serialize.url("elastic_pool_name", elastic_pool_name, 'str'),
+            'operationId': self._serialize.url("operation_id", operation_id, 'str'),
+            'subscriptionId': self._serialize.url("self.config.subscription_id", self.config.subscription_id, 'str')
         }
         url = self._client.format_url(url, **path_format_arguments)
 
@@ -76,7 +86,7 @@ class CapabilitiesOperations(object):
             header_parameters['accept-language'] = self._serialize.header("self.config.accept_language", self.config.accept_language, 'str')
 
         # Construct and send request
-        request = self._client.get(url, query_parameters)
+        request = self._client.post(url, query_parameters)
         response = self._client.send(request, header_parameters, stream=False, **operation_config)
 
         if response.status_code not in [200]:
@@ -84,13 +94,6 @@ class CapabilitiesOperations(object):
             exp.request_id = response.headers.get('x-ms-request-id')
             raise exp
 
-        deserialized = None
-
-        if response.status_code == 200:
-            deserialized = self._deserialize('LocationCapabilities', response)
-
         if raw:
-            client_raw_response = ClientRawResponse(deserialized, response)
+            client_raw_response = ClientRawResponse(None, response)
             return client_raw_response
-
-        return deserialized

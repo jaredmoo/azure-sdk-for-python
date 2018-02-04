@@ -45,6 +45,12 @@ class PerformanceLevelUnit(Enum):
     dtu = "DTU"
 
 
+class CheckNameAvailabilityReason(Enum):
+
+    invalid = "Invalid"
+    already_exists = "AlreadyExists"
+
+
 class ServerConnectionType(Enum):
 
     default = "Default"
@@ -242,35 +248,11 @@ class ReplicationState(Enum):
     suspended = "SUSPENDED"
 
 
-class CheckNameAvailabilityReason(Enum):
-
-    invalid = "Invalid"
-    already_exists = "AlreadyExists"
-
-
 class ElasticPoolEdition(Enum):
 
     basic = "Basic"
     standard = "Standard"
     premium = "Premium"
-
-
-class CreateMode(Enum):
-
-    copy = "Copy"
-    default = "Default"
-    non_readable_secondary = "NonReadableSecondary"
-    online_secondary = "OnlineSecondary"
-    point_in_time_restore = "PointInTimeRestore"
-    recovery = "Recovery"
-    restore = "Restore"
-    restore_long_term_retention_backup = "RestoreLongTermRetentionBackup"
-
-
-class TransparentDataEncryptionStatus(Enum):
-
-    enabled = "Enabled"
-    disabled = "Disabled"
 
 
 class RecommendedIndexAction(Enum):
@@ -303,21 +285,9 @@ class RecommendedIndexType(Enum):
     clusteredcolumnstore = "CLUSTERED COLUMNSTORE"
 
 
-class ReadScale(Enum):
+class TransparentDataEncryptionStatus(Enum):
 
     enabled = "Enabled"
-    disabled = "Disabled"
-
-
-class SampleName(Enum):
-
-    adventure_works_lt = "AdventureWorksLT"
-
-
-class ElasticPoolState(Enum):
-
-    creating = "Creating"
-    ready = "Ready"
     disabled = "Disabled"
 
 
@@ -331,6 +301,38 @@ class BlobAuditingPolicyState(Enum):
 
     enabled = "Enabled"
     disabled = "Disabled"
+
+
+class AutomaticTuningMode(Enum):
+
+    inherit = "Inherit"
+    custom = "Custom"
+    auto = "Auto"
+    unspecified = "Unspecified"
+
+
+class AutomaticTuningOptionModeDesired(Enum):
+
+    off = "Off"
+    on = "On"
+    default = "Default"
+
+
+class AutomaticTuningOptionModeActual(Enum):
+
+    off = "Off"
+    on = "On"
+
+
+class AutomaticTuningDisabledReason(Enum):
+
+    default = "Default"
+    disabled = "Disabled"
+    auto_configured = "AutoConfigured"
+    inherited_from_server = "InheritedFromServer"
+    query_store_off = "QueryStoreOff"
+    query_store_read_only = "QueryStoreReadOnly"
+    not_supported = "NotSupported"
 
 
 class ServerKeyType(Enum):
@@ -442,6 +444,80 @@ class VirtualNetworkRuleState(Enum):
     unknown = "Unknown"
 
 
+class AutomaticTuningServerMode(Enum):
+
+    custom = "Custom"
+    auto = "Auto"
+    unspecified = "Unspecified"
+
+
+class AutomaticTuningServerReason(Enum):
+
+    default = "Default"
+    disabled = "Disabled"
+    auto_configured = "AutoConfigured"
+
+
+class CreateMode(Enum):
+
+    default = "Default"
+    copy = "Copy"
+    secondary = "Secondary"
+    point_in_time_restore = "PointInTimeRestore"
+    restore = "Restore"
+    recovery = "Recovery"
+    restore_external_backup = "RestoreExternalBackup"
+    restore_external_backup_secondary = "RestoreExternalBackupSecondary"
+    restore_long_term_retention_backup = "RestoreLongTermRetentionBackup"
+
+
+class SampleName(Enum):
+
+    adventure_works_lt = "AdventureWorksLT"
+    wide_world_importers_std = "WideWorldImportersStd"
+    wide_world_importers_full = "WideWorldImportersFull"
+
+
+class DatabaseStatus(Enum):
+
+    online = "Online"
+    restoring = "Restoring"
+    recovery_pending = "RecoveryPending"
+    recovering = "Recovering"
+    suspect = "Suspect"
+    offline = "Offline"
+    standby = "Standby"
+    shutdown = "Shutdown"
+    emergency_mode = "EmergencyMode"
+    auto_closed = "AutoClosed"
+    copying = "Copying"
+    creating = "Creating"
+    inaccessible = "Inaccessible"
+    offline_secondary = "OfflineSecondary"
+    pausing = "Pausing"
+    paused = "Paused"
+    resuming = "Resuming"
+    scaling = "Scaling"
+
+
+class CatalogCollationType(Enum):
+
+    database_default = "DATABASE_DEFAULT"
+    sql_latin1_general_cp1_ci_as = "SQL_Latin1_General_CP1_CI_AS"
+
+
+class DatabaseLicenseType(Enum):
+
+    included = "Included"
+    base_price = "Base Price"
+
+
+class DatabaseReadScale(Enum):
+
+    enabled = "Enabled"
+    disabled = "Disabled"
+
+
 class ManagementOperationState(Enum):
 
     pending = "Pending"
@@ -450,3 +526,16 @@ class ManagementOperationState(Enum):
     failed = "Failed"
     cancel_in_progress = "CancelInProgress"
     cancelled = "Cancelled"
+
+
+class ElasticPoolState(Enum):
+
+    creating = "Creating"
+    ready = "Ready"
+    disabled = "Disabled"
+
+
+class ElasticPoolLicenseType(Enum):
+
+    included = "Included"
+    base_price = "Base Price"

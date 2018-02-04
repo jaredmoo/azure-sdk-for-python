@@ -15,6 +15,7 @@ from .restore_points_operations import RestorePointsOperations
 from .recoverable_databases_operations import RecoverableDatabasesOperations
 from .restorable_dropped_databases_operations import RestorableDroppedDatabasesOperations
 from .capabilities_operations import CapabilitiesOperations
+from .servers_operations import ServersOperations
 from .server_connection_policies_operations import ServerConnectionPoliciesOperations
 from .database_threat_detection_policies_operations import DatabaseThreatDetectionPoliciesOperations
 from .data_masking_policies_operations import DataMaskingPoliciesOperations
@@ -27,7 +28,6 @@ from .replication_links_operations import ReplicationLinksOperations
 from .server_azure_ad_administrators_operations import ServerAzureADAdministratorsOperations
 from .server_communication_links_operations import ServerCommunicationLinksOperations
 from .service_objectives_operations import ServiceObjectivesOperations
-from .servers_operations import ServersOperations
 from .elastic_pool_activities_operations import ElasticPoolActivitiesOperations
 from .elastic_pool_database_activities_operations import ElasticPoolDatabaseActivitiesOperations
 from .recommended_elastic_pools_operations import RecommendedElasticPoolsOperations
@@ -37,6 +37,7 @@ from .transparent_data_encryption_activities_operations import TransparentDataEn
 from .server_usages_operations import ServerUsagesOperations
 from .database_usages_operations import DatabaseUsagesOperations
 from .database_blob_auditing_policies_operations import DatabaseBlobAuditingPoliciesOperations
+from .database_automatic_tuning_operations import DatabaseAutomaticTuningOperations
 from .encryption_protectors_operations import EncryptionProtectorsOperations
 from .failover_groups_operations import FailoverGroupsOperations
 from .operations import Operations
@@ -46,8 +47,10 @@ from .sync_groups_operations import SyncGroupsOperations
 from .sync_members_operations import SyncMembersOperations
 from .subscription_usages_operations import SubscriptionUsagesOperations
 from .virtual_network_rules_operations import VirtualNetworkRulesOperations
-from .database_operations import DatabaseOperations
+from .server_automatic_tuning_operations import ServerAutomaticTuningOperations
 from .server_dns_aliases_operations import ServerDnsAliasesOperations
+from .database_operations import DatabaseOperations
+from .elastic_pool_operations import ElasticPoolOperations
 
 __all__ = [
     'BackupLongTermRetentionPoliciesOperations',
@@ -56,6 +59,7 @@ __all__ = [
     'RecoverableDatabasesOperations',
     'RestorableDroppedDatabasesOperations',
     'CapabilitiesOperations',
+    'ServersOperations',
     'ServerConnectionPoliciesOperations',
     'DatabaseThreatDetectionPoliciesOperations',
     'DataMaskingPoliciesOperations',
@@ -68,7 +72,6 @@ __all__ = [
     'ServerAzureADAdministratorsOperations',
     'ServerCommunicationLinksOperations',
     'ServiceObjectivesOperations',
-    'ServersOperations',
     'ElasticPoolActivitiesOperations',
     'ElasticPoolDatabaseActivitiesOperations',
     'RecommendedElasticPoolsOperations',
@@ -78,6 +81,7 @@ __all__ = [
     'ServerUsagesOperations',
     'DatabaseUsagesOperations',
     'DatabaseBlobAuditingPoliciesOperations',
+    'DatabaseAutomaticTuningOperations',
     'EncryptionProtectorsOperations',
     'FailoverGroupsOperations',
     'Operations',
@@ -87,6 +91,8 @@ __all__ = [
     'SyncMembersOperations',
     'SubscriptionUsagesOperations',
     'VirtualNetworkRulesOperations',
-    'DatabaseOperations',
+    'ServerAutomaticTuningOperations',
     'ServerDnsAliasesOperations',
+    'DatabaseOperations',
+    'ElasticPoolOperations',
 ]
