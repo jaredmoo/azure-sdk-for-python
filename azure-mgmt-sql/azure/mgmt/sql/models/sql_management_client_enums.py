@@ -24,27 +24,6 @@ class RestorePointType(Enum):
     continuous = "CONTINUOUS"
 
 
-class CapabilityStatus(Enum):
-
-    visible = "Visible"
-    available = "Available"
-    default = "Default"
-    disabled = "Disabled"
-
-
-class MaxSizeUnits(Enum):
-
-    megabytes = "Megabytes"
-    gigabytes = "Gigabytes"
-    terabytes = "Terabytes"
-    petabytes = "Petabytes"
-
-
-class PerformanceLevelUnit(Enum):
-
-    dtu = "DTU"
-
-
 class CheckNameAvailabilityReason(Enum):
 
     invalid = "Invalid"
@@ -458,6 +437,37 @@ class AutomaticTuningServerReason(Enum):
     auto_configured = "AutoConfigured"
 
 
+class MaxSizeUnit(Enum):
+
+    megabytes = "Megabytes"
+    gigabytes = "Gigabytes"
+    terabytes = "Terabytes"
+    petabytes = "Petabytes"
+
+
+class LogSizeUnit(Enum):
+
+    megabytes = "Megabytes"
+    gigabytes = "Gigabytes"
+    terabytes = "Terabytes"
+    petabytes = "Petabytes"
+    percent = "Percent"
+
+
+class CapabilityStatus(Enum):
+
+    visible = "Visible"
+    available = "Available"
+    default = "Default"
+    disabled = "Disabled"
+
+
+class PerformanceLevelUnit(Enum):
+
+    dtu = "DTU"
+    vcores = "VCores"
+
+
 class CreateMode(Enum):
 
     default = "Default"
@@ -539,3 +549,10 @@ class ElasticPoolLicenseType(Enum):
 
     included = "Included"
     base_price = "Base Price"
+
+
+class CapabilityGroup(Enum):
+
+    supported_editions = "supportedEditions"
+    supported_elastic_pool_editions = "supportedElasticPoolEditions"
+    supported_managed_instance_versions = "supportedManagedInstanceVersions"

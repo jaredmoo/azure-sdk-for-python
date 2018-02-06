@@ -18,7 +18,6 @@ from .operations.backup_long_term_retention_vaults_operations import BackupLongT
 from .operations.restore_points_operations import RestorePointsOperations
 from .operations.recoverable_databases_operations import RecoverableDatabasesOperations
 from .operations.restorable_dropped_databases_operations import RestorableDroppedDatabasesOperations
-from .operations.capabilities_operations import CapabilitiesOperations
 from .operations.servers_operations import ServersOperations
 from .operations.server_connection_policies_operations import ServerConnectionPoliciesOperations
 from .operations.database_threat_detection_policies_operations import DatabaseThreatDetectionPoliciesOperations
@@ -53,6 +52,7 @@ from .operations.subscription_usages_operations import SubscriptionUsagesOperati
 from .operations.virtual_network_rules_operations import VirtualNetworkRulesOperations
 from .operations.server_automatic_tuning_operations import ServerAutomaticTuningOperations
 from .operations.server_dns_aliases_operations import ServerDnsAliasesOperations
+from .operations.capabilities_operations import CapabilitiesOperations
 from .operations.database_operations import DatabaseOperations
 from .operations.elastic_pool_operations import ElasticPoolOperations
 from . import models
@@ -107,8 +107,6 @@ class SqlManagementClient(object):
     :vartype recoverable_databases: azure.mgmt.sql.operations.RecoverableDatabasesOperations
     :ivar restorable_dropped_databases: RestorableDroppedDatabases operations
     :vartype restorable_dropped_databases: azure.mgmt.sql.operations.RestorableDroppedDatabasesOperations
-    :ivar capabilities: Capabilities operations
-    :vartype capabilities: azure.mgmt.sql.operations.CapabilitiesOperations
     :ivar servers: Servers operations
     :vartype servers: azure.mgmt.sql.operations.ServersOperations
     :ivar server_connection_policies: ServerConnectionPolicies operations
@@ -177,6 +175,8 @@ class SqlManagementClient(object):
     :vartype server_automatic_tuning: azure.mgmt.sql.operations.ServerAutomaticTuningOperations
     :ivar server_dns_aliases: ServerDnsAliases operations
     :vartype server_dns_aliases: azure.mgmt.sql.operations.ServerDnsAliasesOperations
+    :ivar capabilities: Capabilities operations
+    :vartype capabilities: azure.mgmt.sql.operations.CapabilitiesOperations
     :ivar database_operations: DatabaseOperations operations
     :vartype database_operations: azure.mgmt.sql.operations.DatabaseOperations
     :ivar elastic_pool_operations: ElasticPoolOperations operations
@@ -210,8 +210,6 @@ class SqlManagementClient(object):
         self.recoverable_databases = RecoverableDatabasesOperations(
             self._client, self.config, self._serialize, self._deserialize)
         self.restorable_dropped_databases = RestorableDroppedDatabasesOperations(
-            self._client, self.config, self._serialize, self._deserialize)
-        self.capabilities = CapabilitiesOperations(
             self._client, self.config, self._serialize, self._deserialize)
         self.servers = ServersOperations(
             self._client, self.config, self._serialize, self._deserialize)
@@ -280,6 +278,8 @@ class SqlManagementClient(object):
         self.server_automatic_tuning = ServerAutomaticTuningOperations(
             self._client, self.config, self._serialize, self._deserialize)
         self.server_dns_aliases = ServerDnsAliasesOperations(
+            self._client, self.config, self._serialize, self._deserialize)
+        self.capabilities = CapabilitiesOperations(
             self._client, self.config, self._serialize, self._deserialize)
         self.database_operations = DatabaseOperations(
             self._client, self.config, self._serialize, self._deserialize)

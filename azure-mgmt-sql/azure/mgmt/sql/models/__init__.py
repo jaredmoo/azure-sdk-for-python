@@ -17,15 +17,6 @@ from .tracked_resource import TrackedResource
 from .restore_point import RestorePoint
 from .recoverable_database import RecoverableDatabase
 from .restorable_dropped_database import RestorableDroppedDatabase
-from .max_size_capability import MaxSizeCapability
-from .service_objective_capability import ServiceObjectiveCapability
-from .edition_capability import EditionCapability
-from .elastic_pool_per_database_min_dtu_capability import ElasticPoolPerDatabaseMinDtuCapability
-from .elastic_pool_per_database_max_dtu_capability import ElasticPoolPerDatabaseMaxDtuCapability
-from .elastic_pool_dtu_capability import ElasticPoolDtuCapability
-from .elastic_pool_edition_capability import ElasticPoolEditionCapability
-from .server_version_capability import ServerVersionCapability
-from .location_capabilities import LocationCapabilities
 from .check_name_availability_request import CheckNameAvailabilityRequest
 from .check_name_availability_response import CheckNameAvailabilityResponse
 from .server_connection_policy import ServerConnectionPolicy
@@ -93,6 +84,23 @@ from .automatic_tuning_server_options import AutomaticTuningServerOptions
 from .server_automatic_tuning import ServerAutomaticTuning
 from .server_dns_alias import ServerDnsAlias
 from .server_dns_alias_acquisition import ServerDnsAliasAcquisition
+from .max_size_capability import MaxSizeCapability
+from .log_size_capability import LogSizeCapability
+from .max_size_range_capability import MaxSizeRangeCapability
+from .performance_level_capability import PerformanceLevelCapability
+from .license_type_capability import LicenseTypeCapability
+from .service_level_objective_capability import ServiceLevelObjectiveCapability
+from .edition_capability import EditionCapability
+from .elastic_pool_per_database_min_performance_level_capability import ElasticPoolPerDatabaseMinPerformanceLevelCapability
+from .elastic_pool_per_database_max_performance_level_capability import ElasticPoolPerDatabaseMaxPerformanceLevelCapability
+from .elastic_pool_performance_level_capability import ElasticPoolPerformanceLevelCapability
+from .elastic_pool_edition_capability import ElasticPoolEditionCapability
+from .server_version_capability import ServerVersionCapability
+from .managed_instance_vcores_capability import ManagedInstanceVcoresCapability
+from .managed_instance_family_capability import ManagedInstanceFamilyCapability
+from .managed_instance_edition_capability import ManagedInstanceEditionCapability
+from .managed_instance_version_capability import ManagedInstanceVersionCapability
+from .location_capabilities import LocationCapabilities
 from .sku import Sku
 from .database import Database
 from .database_update import DatabaseUpdate
@@ -144,9 +152,6 @@ from .database_operation_paged import DatabaseOperationPaged
 from .sql_management_client_enums import (
     BackupLongTermRetentionPolicyState,
     RestorePointType,
-    CapabilityStatus,
-    MaxSizeUnits,
-    PerformanceLevelUnit,
     CheckNameAvailabilityReason,
     ServerConnectionType,
     SecurityAlertPolicyState,
@@ -192,6 +197,10 @@ from .sql_management_client_enums import (
     VirtualNetworkRuleState,
     AutomaticTuningServerMode,
     AutomaticTuningServerReason,
+    MaxSizeUnit,
+    LogSizeUnit,
+    CapabilityStatus,
+    PerformanceLevelUnit,
     CreateMode,
     SampleName,
     DatabaseStatus,
@@ -201,6 +210,7 @@ from .sql_management_client_enums import (
     ManagementOperationState,
     ElasticPoolState,
     ElasticPoolLicenseType,
+    CapabilityGroup,
 )
 
 __all__ = [
@@ -212,15 +222,6 @@ __all__ = [
     'RestorePoint',
     'RecoverableDatabase',
     'RestorableDroppedDatabase',
-    'MaxSizeCapability',
-    'ServiceObjectiveCapability',
-    'EditionCapability',
-    'ElasticPoolPerDatabaseMinDtuCapability',
-    'ElasticPoolPerDatabaseMaxDtuCapability',
-    'ElasticPoolDtuCapability',
-    'ElasticPoolEditionCapability',
-    'ServerVersionCapability',
-    'LocationCapabilities',
     'CheckNameAvailabilityRequest',
     'CheckNameAvailabilityResponse',
     'ServerConnectionPolicy',
@@ -288,6 +289,23 @@ __all__ = [
     'ServerAutomaticTuning',
     'ServerDnsAlias',
     'ServerDnsAliasAcquisition',
+    'MaxSizeCapability',
+    'LogSizeCapability',
+    'MaxSizeRangeCapability',
+    'PerformanceLevelCapability',
+    'LicenseTypeCapability',
+    'ServiceLevelObjectiveCapability',
+    'EditionCapability',
+    'ElasticPoolPerDatabaseMinPerformanceLevelCapability',
+    'ElasticPoolPerDatabaseMaxPerformanceLevelCapability',
+    'ElasticPoolPerformanceLevelCapability',
+    'ElasticPoolEditionCapability',
+    'ServerVersionCapability',
+    'ManagedInstanceVcoresCapability',
+    'ManagedInstanceFamilyCapability',
+    'ManagedInstanceEditionCapability',
+    'ManagedInstanceVersionCapability',
+    'LocationCapabilities',
     'Sku',
     'Database',
     'DatabaseUpdate',
@@ -338,9 +356,6 @@ __all__ = [
     'DatabaseOperationPaged',
     'BackupLongTermRetentionPolicyState',
     'RestorePointType',
-    'CapabilityStatus',
-    'MaxSizeUnits',
-    'PerformanceLevelUnit',
     'CheckNameAvailabilityReason',
     'ServerConnectionType',
     'SecurityAlertPolicyState',
@@ -386,6 +401,10 @@ __all__ = [
     'VirtualNetworkRuleState',
     'AutomaticTuningServerMode',
     'AutomaticTuningServerReason',
+    'MaxSizeUnit',
+    'LogSizeUnit',
+    'CapabilityStatus',
+    'PerformanceLevelUnit',
     'CreateMode',
     'SampleName',
     'DatabaseStatus',
@@ -395,4 +414,5 @@ __all__ = [
     'ManagementOperationState',
     'ElasticPoolState',
     'ElasticPoolLicenseType',
+    'CapabilityGroup',
 ]

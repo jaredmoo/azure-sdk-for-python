@@ -14,7 +14,6 @@ from .backup_long_term_retention_vaults_operations import BackupLongTermRetentio
 from .restore_points_operations import RestorePointsOperations
 from .recoverable_databases_operations import RecoverableDatabasesOperations
 from .restorable_dropped_databases_operations import RestorableDroppedDatabasesOperations
-from .capabilities_operations import CapabilitiesOperations
 from .servers_operations import ServersOperations
 from .server_connection_policies_operations import ServerConnectionPoliciesOperations
 from .database_threat_detection_policies_operations import DatabaseThreatDetectionPoliciesOperations
@@ -49,6 +48,7 @@ from .subscription_usages_operations import SubscriptionUsagesOperations
 from .virtual_network_rules_operations import VirtualNetworkRulesOperations
 from .server_automatic_tuning_operations import ServerAutomaticTuningOperations
 from .server_dns_aliases_operations import ServerDnsAliasesOperations
+from .capabilities_operations import CapabilitiesOperations
 from .database_operations import DatabaseOperations
 from .elastic_pool_operations import ElasticPoolOperations
 
@@ -58,7 +58,6 @@ __all__ = [
     'RestorePointsOperations',
     'RecoverableDatabasesOperations',
     'RestorableDroppedDatabasesOperations',
-    'CapabilitiesOperations',
     'ServersOperations',
     'ServerConnectionPoliciesOperations',
     'DatabaseThreatDetectionPoliciesOperations',
@@ -93,6 +92,7 @@ __all__ = [
     'VirtualNetworkRulesOperations',
     'ServerAutomaticTuningOperations',
     'ServerDnsAliasesOperations',
+    'CapabilitiesOperations',
     'DatabaseOperations',
     'ElasticPoolOperations',
 ]

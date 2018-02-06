@@ -12,37 +12,40 @@
 from msrest.serialization import Model
 
 
-class ElasticPoolPerDatabaseMaxDtuCapability(Model):
-    """The max per-database DTU capability.
+class ElasticPoolPerDatabaseMinPerformanceLevelCapability(Model):
+    """The minimum per-database performance level capability.
 
     Variables are only populated by the server, and will be ignored when
     sending a request.
 
-    :ivar limit: The maximum DTUs per database.
-    :vartype limit: long
+    :ivar limit: The minimum performance level per database.
+    :vartype limit: float
+    :ivar unit: Unit type used to measure performance level. Possible values
+     include: 'DTU', 'VCores'
+    :vartype unit: str or ~azure.mgmt.sql.models.PerformanceLevelUnit
     :ivar status: The status of the capability. Possible values include:
      'Visible', 'Available', 'Default', 'Disabled'
     :vartype status: str or ~azure.mgmt.sql.models.CapabilityStatus
-    :ivar supported_per_database_min_dtus: The list of supported min database
-     DTUs.
-    :vartype supported_per_database_min_dtus:
-     list[~azure.mgmt.sql.models.ElasticPoolPerDatabaseMinDtuCapability]
+    :param reason: The reason for the capability not being available.
+    :type reason: str
     """
 
     _validation = {
         'limit': {'readonly': True},
+        'unit': {'readonly': True},
         'status': {'readonly': True},
-        'supported_per_database_min_dtus': {'readonly': True},
     }
 
     _attribute_map = {
-        'limit': {'key': 'limit', 'type': 'long'},
+        'limit': {'key': 'limit', 'type': 'float'},
+        'unit': {'key': 'unit', 'type': 'str'},
         'status': {'key': 'status', 'type': 'CapabilityStatus'},
-        'supported_per_database_min_dtus': {'key': 'supportedPerDatabaseMinDtus', 'type': '[ElasticPoolPerDatabaseMinDtuCapability]'},
+        'reason': {'key': 'reason', 'type': 'str'},
     }
 
-    def __init__(self):
-        super(ElasticPoolPerDatabaseMaxDtuCapability, self).__init__()
+    def __init__(self, reason=None):
+        super(ElasticPoolPerDatabaseMinPerformanceLevelCapability, self).__init__()
         self.limit = None
+        self.unit = None
         self.status = None
-        self.supported_per_database_min_dtus = None
+        self.reason = reason

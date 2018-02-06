@@ -12,30 +12,30 @@
 from msrest.serialization import Model
 
 
-class ElasticPoolPerDatabaseMinDtuCapability(Model):
-    """The minimum per-database DTU capability.
+class LogSizeCapability(Model):
+    """The log size capability.
 
     Variables are only populated by the server, and will be ignored when
     sending a request.
 
-    :ivar limit: The maximum DTUs per database.
-    :vartype limit: long
-    :ivar status: The status of the capability. Possible values include:
-     'Visible', 'Available', 'Default', 'Disabled'
-    :vartype status: str or ~azure.mgmt.sql.models.CapabilityStatus
+    :ivar limit: The log size limit (see 'unit' for the units).
+    :vartype limit: int
+    :ivar unit: The units that the limit is expressed in. Possible values
+     include: 'Megabytes', 'Gigabytes', 'Terabytes', 'Petabytes', 'Percent'
+    :vartype unit: str or ~azure.mgmt.sql.models.LogSizeUnit
     """
 
     _validation = {
         'limit': {'readonly': True},
-        'status': {'readonly': True},
+        'unit': {'readonly': True},
     }
 
     _attribute_map = {
-        'limit': {'key': 'limit', 'type': 'long'},
-        'status': {'key': 'status', 'type': 'CapabilityStatus'},
+        'limit': {'key': 'limit', 'type': 'int'},
+        'unit': {'key': 'unit', 'type': 'str'},
     }
 
     def __init__(self):
-        super(ElasticPoolPerDatabaseMinDtuCapability, self).__init__()
+        super(LogSizeCapability, self).__init__()
         self.limit = None
-        self.status = None
+        self.unit = None
